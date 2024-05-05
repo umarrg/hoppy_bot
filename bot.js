@@ -1,16 +1,11 @@
+require('dotenv').config()
 const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
 const app = express();
 const sdk = require('@api/leonardoai');
-const axios = require("axios");
-const OpenAI = require("openai");
-const fs = require("fs");
-const bot = new TelegramBot("7082906196:AAEUHqa9xXnOTwEic794zeSO2ekRtkxx-o4", { polling: true });
+const bot = new TelegramBot(process.env.TOKEN, { polling: true });
 const PORT = process.env.PORT || 9000
-const openai = new OpenAI({
-    apiKey: 'sk-proj-hlpLMjlkASE01dd8rY3LT3BlbkFJRJ9fzIGqFemIvtP2VUst'
-});
-sdk.auth('9371a660-89ee-4ca2-91dc-eb00a9d22b02');
+sdk.auth(process.env.SDK);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true, }));
 app.get('/', (req, res) => {
