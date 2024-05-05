@@ -18,7 +18,62 @@ app.get('/', (req, res) => {
 });
 
 
+const commands = [
+    { command: '/start', description: 'Start the bot' },
+    { command: '/help', description: 'Display this help message' },
+    { command: '/image', description: 'Generate an image based on the provided prompt' },
 
+];
+
+bot.setMyCommands(commands);
+
+
+bot.onText(/\/start/, (msg, match) => {
+    let name = msg.chat.first_name;
+
+    const chatId = msg.chat.id;
+    const welcomeMessage = `Hey ${name}! \n \nWelcome to Hoppy Coin AI Image Generation Bot! Here are some commands you can use: \n \n - /start: Start the bot \n - /help: Display this help message  \n - /reset: Reset your chat history  \n - /image: Generate an image from prompt /image < prompt > .  \n\nIf you have any questions or need assistance, feel free to ask! \n  \nDon't forget to check us out on Twitter and Telegram.`;
+
+
+    const inlineKeyboard = {
+        reply_markup: {
+            inline_keyboard: [
+                [
+                    { text: 'Twitter', url: 'https://twitter.com/' },
+
+                ],
+                [
+                    { text: 'Telegram', url: 'https://t.me/' }
+                ]
+            ]
+        }
+    };
+
+    bot.sendMessage(chatId, welcomeMessage, inlineKeyboard);
+});
+bot.onText(/\/help/, (msg, match) => {
+    let name = msg.chat.first_name;
+
+    const chatId = msg.chat.id;
+    const welcomeMessage = `Hey ${name}! \n \nWelcome to Hoppy Coin AI Image Generation Bot! Here are some commands you can use: \n \n - /start: Start the bot \n - /help: Display this help message  \n - /reset: Reset your chat history  \n - /image: Generate an image from prompt /image < prompt > .  \n\nIf you have any questions or need assistance, feel free to ask! \n  \nDon't forget to check us out on Twitter and Telegram.`;
+
+
+    const inlineKeyboard = {
+        reply_markup: {
+            inline_keyboard: [
+                [
+                    { text: 'Twitter', url: 'https://twitter.com/' },
+
+                ],
+                [
+                    { text: 'Telegram', url: 'https://t.me/' }
+                ]
+            ]
+        }
+    };
+
+    bot.sendMessage(chatId, welcomeMessage, inlineKeyboard);
+});
 bot.onText(/\/image (.+)/, async (msg, match) => {
     const chatId = msg.chat.id;
     const prompt = match[1];
@@ -28,7 +83,7 @@ bot.onText(/\/image (.+)/, async (msg, match) => {
         const { data } = await sdk.createGeneration({
             alchemy: true,
             height: 768,
-            modelId: 'f1f97b17-d902-4bc9-a5b7-965556950305',
+            modelId: '6ae2cf59-8f44-49a2-a63a-e24dba222d6c',
             num_images: 1,
             presetStyle: 'DYNAMIC',
             prompt: prompt,
