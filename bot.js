@@ -34,11 +34,11 @@ bot.onText(/\/start/, (msg, match) => {
         reply_markup: {
             inline_keyboard: [
                 [
-                    { text: 'Twitter', url: 'https://twitter.com/' },
+                    { text: 'Twitter', url: 'https://twitter.com/hoppycoinERC20' },
 
                 ],
                 [
-                    { text: 'Telegram', url: 'https://t.me/' }
+                    { text: 'Telegram', url: 'https://t.me/hoppycoinERC20' }
                 ]
             ]
         }
@@ -57,11 +57,11 @@ bot.onText(/\/help/, (msg, match) => {
         reply_markup: {
             inline_keyboard: [
                 [
-                    { text: 'Twitter', url: 'https://twitter.com/' },
+                    { text: 'Twitter', url: 'https://twitter.com/hoppycoinERC20' },
 
                 ],
                 [
-                    { text: 'Telegram', url: 'https://t.me/' }
+                    { text: 'Telegram', url: 'https://t.me/hoppycoinERC20' }
                 ]
             ]
         }
