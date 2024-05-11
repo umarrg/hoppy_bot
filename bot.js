@@ -3,8 +3,8 @@ const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
 const app = express();
 const sdk = require('@api/leonardoai');
-const bot = new TelegramBot(process.env.TOKEN, { polling: true });
-// const bot = new TelegramBot(process.env.SDK, { polling: true });
+// const bot = new TelegramBot(process.env.TOKEN, { polling: true });
+const bot = new TelegramBot(process.env.SDK, { polling: true });
 const PORT = process.env.PORT || 9000
 sdk.auth(process.env.SDK);
 app.use(express.json());
