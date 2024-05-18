@@ -79,7 +79,7 @@ bot.onText(/\/image (.+)/, async (msg, match) => {
         const { data } = await sdk.createGeneration({
             alchemy: true,
             height: 768,
-            negative_prompt: 'Ugly,Double,Error',
+            negative_prompt: 'plastic, Deformed, blurry, bad anatomy, bad eyes, crossed eyes, disfigured, poorly drawn face, mutation, mutated, extra limb, ugly, poorly drawn hands, missing limb, blurry, floating limbs, disconnected limbs, malformed hands, blur, out of focus, long neck, long body, mutated hands and fingers, out of frame, blender, doll, cropped, low-res, close-up, poorly-drawn face, out of frame double, two heads, blurred, ugly, disfigured, too many fingers, deformed, repetitive, black and white, grainy, extra limbs, bad anatomy',
             modelId: '6ae2cf59-8f44-49a2-a63a-e24dba222d6c',
             num_images: 1,
             presetStyle: 'DYNAMIC',
