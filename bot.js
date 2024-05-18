@@ -79,6 +79,7 @@ bot.onText(/\/image (.+)/, async (msg, match) => {
         const { data } = await sdk.createGeneration({
             alchemy: true,
             height: 768,
+            negative_prompt: 'Ugly,Double,Error',
             modelId: '6ae2cf59-8f44-49a2-a63a-e24dba222d6c',
             num_images: 1,
             presetStyle: 'DYNAMIC',
